@@ -11,16 +11,16 @@
 
 ```
 src
-	app : route
-			L api : API route  - ex) localhost:3000/api
-			L todo : Page route - ex) localhost:3000/todo
-	components : 공통 및 다수 사용에 대한 component 분리
-	helper : 불특정 다수에서 사용될 함수 모움
-			L fetch : fetch를 각 페이지에 사용성에 맞게 함수화
-	hook : 불특정 다수에서 사용될 hook 모음
-	quires : react-query를 사용하기 쉽게 함수화
-	store : zustand를 사용하여 생성한 상태 관리
-	types : 전역 & 불특정 다수에서 사용되는 interface || type 정리
+L app : route
+	L api : API route  - ex) localhost:3000/api
+	L todo : Page route - ex) localhost:3000/todo
+L components : 공통 및 다수 사용에 대한 component 분리
+L helper : 불특정 다수에서 사용될 함수 모움
+	L fetch : fetch를 각 페이지에 사용성에 맞게 함수화
+L hook : 불특정 다수에서 사용될 hook 모음
+L quires : react-query를 사용하기 쉽게 함수화
+L store : zustand를 사용하여 생성한 상태 관리
+L types : 전역 & 불특정 다수에서 사용되는 interface || type 정리
 ```
 
 ```bash
