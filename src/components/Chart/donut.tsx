@@ -1,5 +1,4 @@
 "use client";
-import { memo, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });

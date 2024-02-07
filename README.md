@@ -1,4 +1,4 @@
-# Next.js version 14 사용한 예제
+# Next.js version 14 사용한 연습용
 
 ```
 아래 요건을 위해서 본래 서버에서 다 처리가 가능하지만 기능 별로 사용을 해봄
@@ -7,6 +7,14 @@
 2. zustand store를 사용하여 상태 관리
 3. tailwind 를 사용하여 UI 생성
 4. apexCharts를 사용하여 그래피 & 차트 제작 연습
+5. 개별 리스트는 CSR <todo>/ 단체 리스트는 SSR로 개발하며 연습 <together>
+```
+
+```
+개선 내용
+
+1. 연습삼아 테스트 했던 내용들은 server 기능 생성 후, refactoring
+2. 네이밍들을 너무...대충 지었다..
 ```
 
 ```

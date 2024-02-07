@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-zinc-50 font-sans dark:bg-zinc-950 min-w-[375px]">
+      <body className="bg-zinc-50 font-sans bg-zinc-950 min-w-[375px] text-white">
         <Provider>{children}</Provider>
       </body>
     </html>

@@ -1,5 +1,5 @@
 "use client";
-import { useState, Suspense, useEffect } from "react";
+import { useState, Suspense } from "react";
 import List from "./list";
 import Loading from "@/components/Loading";
 import { useTodoMutation } from "@/quires/useTodoQuery";
@@ -7,6 +7,7 @@ import Card from "@/components/Card/layout";
 import Popup from "@/components/Popup";
 import DonutChart from "@/components/Chart/donut";
 import useTodoStore from "@/store/useTodoStore";
+import Button from "@/components/Button";
 
 const Todo = () => {
   const { mutateAsync } = useTodoMutation();
@@ -27,15 +28,10 @@ const Todo = () => {
     <>
       <div className="mx-[30px]">
         <div className="flex justify-center items-center">
-          <div className="text-[40px] font-bold text-white">LOGO</div>
+          <div className="text-[40px] font-bold">LOGO</div>
         </div>
         <div className="flex justify-end item-center">
-          <div
-            className="bg-zinc-600 rounded p-[10px] text-[18px]"
-            onClick={handlePopup}
-          >
-            <div className="font-semibold text-white">작성하기</div>
-          </div>
+          <Button onClick={handlePopup} text="작성하기" />
         </div>
         <div className="mt-[30px] grid grid-cols-auto gap-[30px]">
           <Card>
@@ -44,7 +40,7 @@ const Todo = () => {
             </Suspense>
           </Card>
           <Card>
-            <div className="text-white font-bold text-2xl">달성률</div>
+            <div className="font-bold text-2xl">달성률</div>
             <DonutChart {...todo} />
           </Card>
         </div>
