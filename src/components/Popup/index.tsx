@@ -1,14 +1,17 @@
-import { memo } from "react";
-import useInputFieid from "@/hook/useInputFleid";
+import { useState, memo } from "react";
 import Button from "@/components/Button";
 import PopupLayout from "./layout";
+import InputFleid from "@/components/Input";
 
 interface Props {
   onConfirm?: (data: string) => void;
   onCancel?: () => void;
 }
 const Popup = ({ onConfirm, onCancel }: Props) => {
-  const { text, onChange } = useInputFieid({ text: "" });
+  const [title, setTitle] = useState("");
+  const onChange = (val: string) => {
+    setTitle(val);
+  };
 
   return (
     <PopupLayout>
@@ -16,17 +19,10 @@ const Popup = ({ onConfirm, onCancel }: Props) => {
         <div className="text-[24px] font-semibold">등록 하기</div>
         <div className="flex items-center mt-[20px] gap-[20px]">
           <div className="w-[40px] text-[18px] font-semibold">제목 </div>
-          <input
-            name="text"
-            type="text"
-            className="border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-3 bg-gray-700 border-gray-600 placeholder-gray-400 focus:border-blue-500"
-            placeholder="오늘의 할 일을 적어주세요."
-            required
-            onChange={onChange}
-          />
+          <InputFleid onChange={onChange} />
         </div>
         <div className="absolute bottom-[35px] right-[35px] flex gap-[20px] text-[14px]">
-          <Button onClick={() => onConfirm && onConfirm(text)} text="확인" />
+          <Button onClick={() => onConfirm && onConfirm(title)} text="확인" />
           <Button onClick={() => onCancel && onCancel()} text="취소" />
         </div>
       </div>

@@ -19,7 +19,7 @@ export default async function RootLayout({ params, children }: Props) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["todo-test"],
-    queryFn: () => getfetch(`/todo/together/list?roomId=${params.id} `),
+    queryFn: () => getfetch(`/todo/together/list?roomId=${params.id}`),
   });
   const dehydratedState = dehydrate(queryClient);
 

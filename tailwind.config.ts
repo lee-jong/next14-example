@@ -23,6 +23,5 @@ const config: Config = {
       auto: "repeat(auto-fit, minmax(300px, 1fr))",
     },
   },
-  plugins: [],
 };
 export default config;

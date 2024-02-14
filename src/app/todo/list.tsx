@@ -9,7 +9,7 @@ const list = () => {
   const { fetchTodo } = useTodoStore();
 
   useEffect(() => {
-    fetchTodo(data.list.length);
+    fetchTodo(data);
   }, [data]);
 
   return (
@@ -17,7 +17,7 @@ const list = () => {
       <div className="font-bold text-2xl">오늘의 계획!</div>
       <div className="flex flex-col gap-[20px] mt-[50px] h-[400px] overflow-y-scroll scroll_list">
         {data &&
-          data.list.map((item: Item, idx: number) => (
+          data.map((item: Item, idx: number) => (
             <Item
               {...item}
               idx={idx}

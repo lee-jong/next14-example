@@ -4,7 +4,7 @@ import LineChart from "@/components/Chart/bar";
 
 interface Props extends RoomInfo {}
 
-const right = ({ users }: Props) => {
+const Public = ({ users }: Props) => {
   const chartData = users.map((user) => {
     return {
       x: user.name,
@@ -13,11 +13,11 @@ const right = ({ users }: Props) => {
   });
 
   return (
-    <Card>
+    <Card height="400px">
       <div>공통 목표 달성률</div>
       <LineChart data={chartData} />
     </Card>
   );
 };
 
-export default memo(right);
+export default memo(Public);

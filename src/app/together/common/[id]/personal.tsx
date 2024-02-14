@@ -6,10 +6,10 @@ import Circle from "@/components/Chart/circle";
 
 interface Props extends RoomInfo {}
 
-const left = ({ total }: Props) => {
+const Personal = ({ total }: Props) => {
   const onClick = () => {};
   return (
-    <Card>
+    <Card height="400px">
       <div>개인 달성 </div>
       <div className="w-6/12 h-6/12">
         <Circle total={total} success={10} />
@@ -21,4 +21,4 @@ const left = ({ total }: Props) => {
   );
 };
 
-export default memo(left);
+export default memo(Personal);

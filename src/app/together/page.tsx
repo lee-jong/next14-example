@@ -1,8 +1,12 @@
-import { memo } from "react";
+"use client";
+import { memo, useState } from "react";
 import Card from "@/components/Card/layout";
+import Button from "@/components/Button";
 import Room from "./room";
+import RoomPopup from "@/components/Popup/room";
 
 const Together = () => {
+  const [popup, onPopup] = useState(false);
   const tableHeader = {
     index: "index",
     content: "내용",
@@ -21,28 +25,34 @@ const Together = () => {
       users: "1/4",
     },
   ];
+
+  const onClick = (): void => {};
+
   return (
-    <div className="m-[30px]">
-      <Card>
-        <div className="flex justify-between">
-          <div>친구와 함께 공유해보세요.</div>
-          <div>생성하기</div>
-        </div>
-      </Card>
-      <div className="mt-[30px] grid grid-cols-auto gap-[30px]">
+    <>
+      <div className="m-[30px]">
         <Card>
-          <div>List</div>
-          <div className="mt-[30px] min-h-[500px] max-h-[500px] overflow-y-scroll scroll_list">
-            <div className="flex flex-col divide-y mr-[30px]">
-              <Room {...tableHeader} />
-              {list.map((room, idx) => (
-                <Room {...room} key={`room_${idx}`} />
-              ))}
-            </div>
+          <div className="flex justify-between items-center">
+            <div>친구와 함께 공유해보세요.</div>
+            <Button onClick={() => onClick()} text="생성하기" />
           </div>
         </Card>
+        <div className="mt-[30px] grid grid-cols-auto gap-[30px]">
+          <Card>
+            <div>목록</div>
+            <div className="mt-[30px] min-h-[500px] max-h-[500px] overflow-y-scroll scroll_list">
+              <div className="flex flex-col divide-y mr-[30px]">
+                <Room {...tableHeader} />
+                {list.map((room, idx) => (
+                  <Room {...room} key={`room_${idx}`} />
+                ))}
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
-    </div>
+      {popup && <RoomPopup />}
+    </>
   );
 };
 
