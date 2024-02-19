@@ -12,6 +12,7 @@ export const fetchOption: RequestInit = {
 
 export const handleResponse = async (res: Response) => {
   const resJson = await res.json();
+  if (resJson.status !== 200) throw resJson;
   return resJson.data;
 };
 

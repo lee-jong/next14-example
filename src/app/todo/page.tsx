@@ -1,10 +1,10 @@
 "use client";
 import { useState, Suspense } from "react";
 import List from "./list";
-import Loading from "@/components/Loading";
+import Loading from "@/components/Progress";
 import { useTodoMutation } from "@/quires/useTodoQuery";
 import Card from "@/components/Card/layout";
-import Popup from "@/components/Popup";
+import Popup from "@/components/Popup/todo";
 import DonutChart from "@/components/Chart/donut";
 import useTodoStore from "@/store/useTodoStore";
 import Button from "@/components/Button";

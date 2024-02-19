@@ -1,11 +1,11 @@
 import { memo, useState, useEffect, useRef } from "react";
 
 interface Props {
-  onDelete: () => void;
+  list: Array<{ name: ""; callback: () => void }>;
   children: React.ReactNode;
 }
 
-const DropDown = ({ children, onDelete }: Props) => {
+const DropDown = ({ children, list }: Props) => {
   const dropRef = useRef<HTMLDivElement | null>(null);
   const [drop, setDrop] = useState(false);
 
@@ -31,23 +31,23 @@ const DropDown = ({ children, onDelete }: Props) => {
         {children}
       </button>
       {drop && (
-        <>
-          <div
-            id="dropdown"
-            ref={dropRef}
-            className={`absolute mt-[10px] right-[15px] w-[150px] z-10 text-base bg-white divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700 bg-zinc-500 ${
-              !drop && "hidden list-none"
-            }`}
-          >
+        <div
+          id="dropdown"
+          ref={dropRef}
+          className={`absolute mt-[10px] right-[15px] w-[150px] z-10 text-base bg-white divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700 bg-zinc-500 ${
+            !drop && "hidden list-none"
+          }`}
+        >
+          {list.map((item) => (
             <ul className="p-2">
-              <li onClick={onDelete}>
+              <li onClick={item.callback}>
                 <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:bg-gray-600 text-gray-200">
-                  삭제
+                  {item.name}
                 </a>
               </li>
             </ul>
-          </div>
-        </>
+          ))}
+        </div>
       )}
     </div>
   );
